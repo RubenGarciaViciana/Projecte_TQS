@@ -1,10 +1,10 @@
-package test;
+package test.uab.tqs.bingo;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import main.main;
+import main.uab.tqs.bingo.main;
 
 class mainTest {
 
