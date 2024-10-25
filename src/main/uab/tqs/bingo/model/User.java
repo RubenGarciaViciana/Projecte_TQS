@@ -25,7 +25,7 @@ public class User {
 
     public void setName(String name) {
         // Pre-condición
-        assert name != "" : "El no,bre no puede estar vacio";
+        assert name != "" : "El nombre no puede estar vacio";
 
         this.name = name;
 
