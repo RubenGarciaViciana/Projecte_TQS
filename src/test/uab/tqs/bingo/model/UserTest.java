@@ -26,14 +26,6 @@ class UserTest {
 		// Creo el mock y
 		Cartoon _cartoon = mock(Cartoon.class);
 
-		// Defino lo que devolvera la función
-        /*
-        when(_cartoon.checkNumber(0)).thenReturn(true);
-		_cartoon.checkNumber(0); // Ahora este metodo devolvera true
-
-		assertEquals(true, _cartoon.checkNumber(0));
-        */
-
         //Creamos el objeto de user con atributos
 		User user = new User("Rubén",_cartoon);
 
