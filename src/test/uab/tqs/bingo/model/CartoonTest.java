@@ -75,8 +75,6 @@ class CartoonTest {
 			}
 		}
 
-		// Tendiramos que añadir algunos casos que den falso para dar pruebas
-
 	}
 
 	@Test
@@ -86,12 +84,17 @@ class CartoonTest {
 		//Marcar numero que tenemos en el carton
 		c.putNumber(0,0,2);
 
+		// Mirar uno que no hemos puesto
+		assertFalse(c.checkNumber(1));
+		
 		assertTrue(c.checkNumber(2));
 		assertTrue(c.getChecked()[0][0]); // Miramos que este marcado
 
 		Cartoon c2 = new Cartoon();
 		//Marcar numero que no existe
 		assertFalse(c2.checkNumber(100));
+		//Marcar numero que no existe
+		assertFalse(c2.checkNumber(0));
 		//Ninguno debería estar marcado
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 9; j++) {
