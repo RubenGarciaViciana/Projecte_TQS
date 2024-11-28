@@ -12,7 +12,7 @@ public class User {
     public User(String name, Cartoon cartoon) {
 
         // Pre-condición
-        assert name != "" : "El no,bre no puede estar vacio";
+        assert name != "" : "El nombre no puede estar vacio";
         assert cartoon != null : "El cartoon no puede ser nulo";
 
         this.name = name;
