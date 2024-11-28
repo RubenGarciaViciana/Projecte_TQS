@@ -92,7 +92,7 @@ public class Cartoon {
 							this.checked[fila][columna] = true;
 
 							//Post-condición: Mirar que se ha marcado correctamente
-							assert this.checked[fila][columna]: "No se ha marcado";
+							assert this.checked[fila][columna] == true;
 
 							return true;
 						}
