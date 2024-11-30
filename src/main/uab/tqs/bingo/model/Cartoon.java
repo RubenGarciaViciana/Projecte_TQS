@@ -4,9 +4,6 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
 public class Cartoon {
 	private int[][] cartoon;
 	private boolean[][] checked;

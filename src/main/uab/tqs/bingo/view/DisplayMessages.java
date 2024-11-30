@@ -1,8 +1,8 @@
 package main.uab.tqs.bingo.view;
 
 public class DisplayMessages {
-    public void showWelcomeMessage() {
-        System.out.println("¡Bienvenido al Bingo!");
+    public void showWelcomeMessage(String player) {
+        System.out.println("¡Bienvenido al Bingo!" + player);
     }
 
     public void startMessage() {
