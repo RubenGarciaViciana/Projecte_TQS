@@ -87,6 +87,7 @@ public class GameController {
 
         while (!isGameOver && currentNumberIndex < numbers.size()) {
             int number = numbers.get(currentNumberIndex);
+            System.out.println("Tienes el siguiente numero ? ( 'Y' o 'N' )");
             messagesDisplay.showNumberGenerated(number);
             startPlayerInteraction(number, scanner);
             currentNumberIndex++;
@@ -109,28 +110,34 @@ public class GameController {
         assert scanner != null : "El scanner no puede ser null";
 
         while (!isGameOver) {
+
             String input = scanner.nextLine();
 
             if (input.equals("Y")) {
+            	
+  
                 markNumber(number);
-
+                
+                System.out.println("Tienes Linea o Bingo ? ( 'L', 'B' o '' )");
+                
                 String input2 = scanner.nextLine();
                 if (input2.equals("B")) {
                     checkBingo();
                 } else if (input2.equals("L")) {
                     checkLine();
-                } else {
-                    break;
                 }
+                break;
+                
             } else if (input.equals("N")){
                 String input2 = scanner.nextLine();
                 if (input2.equals("B")) {
                     checkBingo();
                 } else if (input2.equals("L")) {
                     checkLine();
-                } else {
-                    break;
                 }
+                break;
+            }else {
+            	System.out.println("Tienes que poner 'Y' o 'N' en caso de tener el numero o no");
             }
         }
     }
@@ -203,6 +210,9 @@ public class GameController {
                     isBingo = false;
                     break;
                 }
+            }
+            if(!isBingo) {
+            	break;
             }
         }
 
