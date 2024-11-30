@@ -12,8 +12,7 @@ import test.uab.tqs.bingo.model.MockRandomNumberGenerator;
 
 import java.io.ByteArrayInputStream;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class GameControllerTest {
 
@@ -40,6 +39,60 @@ class GameControllerTest {
 		gameController.setRandomNumberGenerator(rng);
 		gameController.setMessagesDisplay(new DisplayMessages());
 	}
+
+	@Test
+	void GameControllerTest() {
+
+		// Verificar que los valores del constructor se han inicializado correctamente
+		assertTrue(gameController != null, "El controlador de juego debería haber sido creado.");
+		assertTrue(gameController.isGameOver() == false, "El juego no debería estar terminado al inicio.");
+		assertTrue(gameController.getPlayer() != null, "Debería haber algun jugador inicializado");
+		assertTrue(gameController.getNumbers().isEmpty());
+		assertEquals(0, gameController.getCurrentNumberIndex(), "El índice actual debería ser 0 al inicio");
+		assertNotNull(gameController.getMessagesDisplay(), "La instancia de mensajes debería haberse inicializado.");
+	}
+
+	@Test
+	void startGameTest() {
+		assertTrue(gameController.getNumbers().isEmpty(), "La lista de números debería estar vacía antes de iniciar el juego.");
+		assertFalse(gameController.isGameOver());
+
+		// Simular entrada del usuario
+		StringBuilder simulatedInput = new StringBuilder();
+		
+		simulatedInput.append("N\nB\n"); // No marcar y cantar bingo
+		simulatedInput.append("N\nL\n"); // No marcar y cantar línea
+		simulatedInput.append("N\nP\n"); // No marcar y pedir el siguiente número
+		simulatedInput.append("Y\nB\n"); // Marcar y cantar bingo
+		simulatedInput.append("Y\nL\n"); // Marcar y no cantar bingo
+		simulatedInput.append("Y\nP\n"); // Marcar y pedir el siguiente número
+		simulatedInput.append("P\n"); // Valor inválido
+		
+		// Llegar hasta los 10 valores
+		simulatedInput.append("N\nN\n");
+		simulatedInput.append("N\nN\n");
+		simulatedInput.append("N\nN\n");
+		simulatedInput.append("N\nN\n");
+		
+			
+		ByteArrayInputStream simulatedInputStream = new ByteArrayInputStream(simulatedInput.toString().getBytes());
+		System.setIn(simulatedInputStream);
+
+		gameController.startGame();
+
+		// Comprovar que hay 10 números a mostrar (basandonos en el mock)
+		assertFalse(gameController.getNumbers().isEmpty(), "La lista de números no debería estar vacía después de iniciar el juego.");
+
+		// Comprovar que se muestren todos los números
+		assertEquals(10, gameController.getNumbers().size(), "Deberían haberse generado exactamente 10 números.");
+		assertEquals(10, gameController.getCurrentNumberIndex(), "El índice actual debería ser igual al tamaño de la lista.");
+
+		// Comprovar que el juego termina y no entra en un bucle
+		assertTrue(gameController.isGameOver(), "El juego debería estar marcado como terminado después de mostrar todos los números.");
+
+		System.setIn(System.in);
+	}
+
 
 	@Test
 	void markNumberTest() {

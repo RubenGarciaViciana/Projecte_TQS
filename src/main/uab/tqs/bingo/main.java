@@ -10,10 +10,6 @@ import main.uab.tqs.bingo.view.DisplayCartoon;
 import main.uab.tqs.bingo.view.DisplayMessages;
 
 public class main {
-	public boolean hola() {
-		return true;
-	}
-	
 	public static void main(String[] args) {
 		System.out.println("Bienvenido al juego del Bingo!");
 		System.out.println("------------------------------------");
@@ -54,7 +50,5 @@ public class main {
 		gc.setMessagesDisplay(new DisplayMessages());
 		gc.startGame();
 		
-		// Crear scanner con escribe tu nombre e instrucciones de como se juega
-		// Crear usuario con el cartoon que antes se tiene que hacer generate cartoon
 	}
 }

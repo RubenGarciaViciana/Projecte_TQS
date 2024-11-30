@@ -37,18 +37,15 @@ public class MockCartoon extends Cartoon {
         if (number > 0 && number <= 90){
             for (int fila = 0; fila < 3; fila++) {
                 for (int columna = 0; columna < 9; columna++) {
-                    int valor = this.cartoon[fila][columna];
                     if (this.cartoon[fila][columna] == number) {
 
                         if (this.checked[fila][columna]) {
-                            print(false);
                             return false;
                         }else{
                             this.checked[fila][columna] = true;
 
                             //Post-condición: Mirar que se ha marcado correctamente
                             assert this.checked[fila][columna] == true;
-                            print(true);
                             return true;
                         }
 
