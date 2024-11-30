@@ -1,7 +1,9 @@
 
 package main.uab.tqs.bingo.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
@@ -45,11 +47,13 @@ public class RandomNumberGenerator {
         assert this.totalNumbers <= (max - min + 1) : "No hay suficientes valores únicos en el rango para el totalNumbers solicitado";
 
         Random rand = new Random();
-        Set<Integer> uniqueNumbers = new HashSet<>();
+        List<Integer> uniqueNumbers = new ArrayList<>();
 
         while (uniqueNumbers.size() < totalNumbers) {
             int number = rand.nextInt((max - min) + 1) + min;
-            uniqueNumbers.add(number);
+            if(!uniqueNumbers.contains(number)) {
+            	uniqueNumbers.add(number);
+            } 
         }
 
         int[] numbers = uniqueNumbers.stream().mapToInt(Integer::intValue).toArray();
