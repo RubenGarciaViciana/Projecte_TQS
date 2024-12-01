@@ -112,10 +112,8 @@ public class GameController {
         while (!isGameOver) {
 
             String input = scanner.nextLine();
-
             if (input.equals("Y")) {
             	
-  
                 markNumber(number);
                 
                 System.out.println("Tienes Linea o Bingo ? ( 'L', 'B' o '' )");
@@ -233,5 +231,21 @@ public class GameController {
 
     public boolean isGameOver() {
         return isGameOver;
+    }
+
+    public User getPlayer() {
+        return player;
+    }
+
+    public List<Integer> getNumbers() {
+        return numbers;
+    }
+
+    public int getCurrentNumberIndex() {
+        return currentNumberIndex;
+    }
+
+    public DisplayMessages getMessagesDisplay() {
+        return messagesDisplay;
     }
 }
