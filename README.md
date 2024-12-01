@@ -11,5 +11,7 @@ Comprobar que tengamos las librerias correctamente en Eclipse
 * byte-buddy-1.15.10.jar
 * byte-buddy-agent-1.15.10.jar
 * mockito-core-5.10.0.jar
+
 En caso de que no salga en la carpeta "lib" tendemos estos .jar, para añadirlo tendiramos que ir a "Add External JARs" y añadirlos
+
 5. Ya podemos ejecutar el main
