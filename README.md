@@ -1,4 +1,7 @@
 # Projecte_TQS
+## Documento del codigo
+El documento con la exlicación de las partes implementadas se llama:
+"Report-Projecte_TQS-Bingo.pdf"
 ## Antes de ejecutar el codigo
 Comprobar que tengamos las librerias correctamente en Eclipse
 1. Click Derecho en el Projecto (Bingo)
